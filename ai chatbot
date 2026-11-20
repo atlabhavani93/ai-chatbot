@@ -1,0 +1,32 @@
+
+import random
+
+print("Welcome to AI Chatbot!")
+print("You can start chatting with me.")
+print("Type 'bye' to exit.")
+
+responses = {
+    "hello": ["Hello!", "Hi there!", "How are you?"],
+    "how are you": ["I am fine!", "I am doing great!"],
+    "name": ["I am an AI Chatbot."],
+    "help": ["How can I help you?"],
+    "bye": ["Goodbye!", "Have a nice day!"]
+}
+
+while True:
+    user = input("You: ").lower()
+
+    if user == "bye":
+        print("Bot:", random.choice(responses["bye"]))
+        break
+
+    found = False
+
+    for key in responses:
+        if key in user:
+            print("Bot:", random.choice(responses[key]))
+            found = True
+            break
+
+    if not found:
+        print("Bot: Sorry, I don't understand.")
